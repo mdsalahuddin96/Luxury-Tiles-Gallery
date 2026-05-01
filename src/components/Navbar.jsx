@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
-      <header className="flex p-4 items-center justify-between">
+      <header className="flex py-4 items-center justify-between container mx-auto">
         <div className="md:flex items-center gap-3 hidden ">
           <div>
             <Link href="/">

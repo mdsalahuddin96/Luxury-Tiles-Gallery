@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Aura Tiles Gallery",
+  title: "Luxury Tiles Gallery",
   description:
     "The Art of Excellence in surface.Tiles on a palette are just stone. Tiles installed on a wall or floor create a feeling.",
 };

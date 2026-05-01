@@ -2,6 +2,14 @@ import { getData } from "@/service/getData";
 import {ArrowLeft} from '@gravity-ui/icons';
 import Image from "next/image";
 
+export async function generateStaticParams() {
+  const tiles = await fetch('https://luxury-tiles-gallery.vercel.app/data.json').then((res) => res.json())
+ 
+  return tiles.map((tile) => ({
+    id: tile.id,
+  }))
+}
+
 const TileDetailsPage = async ({ params }) => {
   const { id } = await params;
   const data = await getData();

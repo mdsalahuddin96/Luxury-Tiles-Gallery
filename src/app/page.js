@@ -7,7 +7,6 @@ import Image from "next/image";
 
 export default async function Home() {
   const tiles = await getData();
-  console.log(tiles[0]);
   return (
     <div>
       <Banner />
@@ -16,7 +15,7 @@ export default async function Home() {
         <h1 className="text-3xl font-bold text-[var(--text-main)] text-center">
           Featured Tiles
         </h1>
-        <div className="grid grid-cols-4 gap-2 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
           {tiles.slice(2,6).map(tile=><TileCard key={tile.id} tile={tile}></TileCard>) }
         </div>
       </div>
