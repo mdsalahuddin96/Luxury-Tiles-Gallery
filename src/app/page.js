@@ -11,7 +11,7 @@ export default async function Home() {
     <div>
       <Banner />
       <MarqueeText />
-      <div className="container mx-auto my-10">
+      <div className="container mx-auto my-20">
         <h1 className="text-3xl font-bold text-[var(--text-main)] text-center">
           Featured Tiles
         </h1>
