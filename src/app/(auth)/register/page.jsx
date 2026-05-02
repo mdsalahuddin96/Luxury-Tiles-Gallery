@@ -70,8 +70,8 @@ const RegisterPage = () => {
             <FieldError />
           </TextField>
           <TextField name="image" type="text">
-            <Label>Image Link</Label>
-            <Input placeholder="Enter image URL" />
+            <Label>Photo-url(link)</Label>
+            <Input placeholder="Enter Photo URL" />
             <FieldError />
           </TextField>
           <TextField
