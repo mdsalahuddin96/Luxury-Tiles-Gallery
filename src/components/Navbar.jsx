@@ -1,30 +1,32 @@
 "use client";
-import { Button } from "@heroui/react";
-
 import { useState } from "react";
-
 import Image from "next/image";
-import user from "@/assets/user.png";
+import userImage from "@/assets/user.png";
 import { ThemeSwitch } from "./ThemeSwitch";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
+import { signOut, useSession } from "@/lib/auth-client";
+import { Spinner } from "@heroui/react";
 
+
+const navItems = [
+  {
+    href: "/",
+    text: "Home",
+  },
+  {
+    href: "/all_tiles",
+    text: "All Tiles",
+  },
+  {
+    href: "/my_profile",
+    text: "My Profile",
+  },
+];
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const navItems = [
-    {
-      href: "/",
-      text: "Home",
-    },
-    {
-      href: "/all_tiles",
-      text: "All Tiles",
-    },
-    {
-      href: "/my_profile",
-      text: "My Profile",
-    },
-  ];
+  const { data, isPending } = useSession();
+  const user = data?.user;
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
@@ -45,7 +47,7 @@ const Navbar = () => {
         </div>
         <button
           onClick={() => setOpen(!open)}
-          className="cursor-pointer md:hidden"
+          className="cursor-pointer md:hidden ml-5"
         >
           ☰
         </button>
@@ -88,12 +90,26 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
+
         <div className="flex gap-2 items-center">
-          <div className="flex gap-2 items-center">
-            <p>User</p>
-            <Image src={user} alt="user" height={40} width={40} />
-            <Link href={'/signin'} className="btn-primary">Login</Link>
-          </div>
+          {isPending ? (
+            <div className="flex flex-col items-center">
+              <Spinner color="success" size="sm" />
+            </div>
+          ) :user? (
+            <div className="flex gap-2 items-center">
+              <p>{user?.name}</p>
+              <Image src={userImage} alt="user" height={40} width={40} />
+              <button onClick={()=>signOut()}  className="btn-primary">
+                Logout
+              </button>
+            </div>
+          ):(<div className="flex gap-2 items-center">
+              <Link href={"/signin"} className="btn-primary">
+                Login
+              </Link>
+            </div>)}
+
           <ThemeSwitch />
         </div>
       </header>

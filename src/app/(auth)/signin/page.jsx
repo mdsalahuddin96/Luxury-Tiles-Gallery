@@ -107,7 +107,7 @@ const SignInPage = () => {
               <ArrowRightToSquare />
               Sign In
             </Button>
-            <Button type="submit" className="w-full btn-secondary ">
+            <Button className="w-full btn-secondary ">
               <FcGoogle />
               Sign In with Google
             </Button>
