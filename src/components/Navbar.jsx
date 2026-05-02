@@ -99,7 +99,7 @@ const Navbar = () => {
           ) :user? (
             <div className="flex gap-2 items-center">
               <p>{user?.name}</p>
-              <Image src={userImage} alt="user" height={40} width={40} />
+              <Image src={user?.image||userImage} alt="user" height={40} width={40} className="rounded-full" />
               <button onClick={()=>signOut()}  className="btn-primary">
                 Logout
               </button>

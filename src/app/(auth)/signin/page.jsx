@@ -19,23 +19,28 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { toast } from "react-toastify";
 const SignInPage = () => {
   const [passwordValue, setPasswordValue] = useState("");
-  const [isShow,setIsShow]=useState(false)
-  const onSubmit =async (e) => {
+  const [isShow, setIsShow] = useState(false);
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const userData=Object.fromEntries(formData)
-    const {data,error}=await authClient.signIn.email({
-      email:userData.email,
-      password:userData.password,
+    const userData = Object.fromEntries(formData);
+    const { data, error } = await authClient.signIn.email({
+      email: userData.email,
+      password: userData.password,
       rememberMe: true,
-      callbackURL:'/'
-    })
-    if(error){
-      toast.error(error.message)
+      callbackURL: "/",
+    });
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Sign In Successful!");
     }
-    else{
-      toast.success('Sign In Successful!')
-    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div className="flex flex-col gap-10 items-center min-h-screen">
@@ -70,7 +75,7 @@ const SignInPage = () => {
             isRequired
             minLength={8}
             name="password"
-            type={isShow?'text':'password'}
+            type={isShow ? "text" : "password"}
             validate={(value) => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
@@ -90,14 +95,16 @@ const SignInPage = () => {
             />
             {passwordValue.length > 0 && (
               <span className="absolute top-8 cursor-pointer right-3 p-1">
-                {isShow?<IoIosEye onClick={()=>setIsShow(!isShow)} />:<IoIosEyeOff onClick={()=>setIsShow(!isShow)} />}
-                
+                {isShow ? (
+                  <IoIosEye onClick={() => setIsShow(!isShow)} />
+                ) : (
+                  <IoIosEyeOff onClick={() => setIsShow(!isShow)} />
+                )}
               </span>
             )}
 
             <Description>
               Must be at least 8 characters with 1 number{" "}
-             
             </Description>
             <FieldError />
           </TextField>
@@ -107,7 +114,10 @@ const SignInPage = () => {
               <ArrowRightToSquare />
               Sign In
             </Button>
-            <Button className="w-full btn-secondary ">
+            <Button
+              className="w-full btn-secondary"
+              onClick={handleGoogleLogin}
+            >
               <FcGoogle />
               Sign In with Google
             </Button>

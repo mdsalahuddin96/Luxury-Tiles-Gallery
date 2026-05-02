@@ -46,7 +46,7 @@ const TileDetailsPage = async ({ params }) => {
           <span className="text-3xl font-semibold text-red-400">${price}</span>
           <p className="text-[var(--text-muted)] text-lg">{description}</p>
         </div>
-        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl max-w-1/2 p-4 grid grid-cols-2 gap-4">
+        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl max-w-100 p-4 grid grid-cols-2 gap-4 md:gap-10">
           <div className="flex flex-col">
             <span className="text-sm text-[var(--text-muted)]">Category</span>
             <span className="font-semibold capitalize">{category}</span>
