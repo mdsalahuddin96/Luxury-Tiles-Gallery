@@ -1,7 +1,7 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import { ArrowRightToSquare} from "@gravity-ui/icons";
+import { ArrowRightToSquare } from "@gravity-ui/icons";
 import {
   Button,
   Description,

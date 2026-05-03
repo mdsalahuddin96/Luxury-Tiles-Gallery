@@ -5,8 +5,10 @@ import userImage from "@/assets/user.png";
 import { ThemeSwitch } from "./ThemeSwitch";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
-import { signOut, useSession } from "@/lib/auth-client";
+import { authClient, signOut, useSession } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
+import { useRouter } from "next/navigation";
+
 
 const navItems = [
   {
@@ -26,6 +28,11 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { data, isPending } = useSession();
   const user = data?.user;
+  const router= useRouter()
+  const handleSignOut= async ()=>{
+    signOut()
+    router.push('/')
+  }
 
   return (
     <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
@@ -117,7 +124,7 @@ const Navbar = () => {
                   {user?.name.charAt(0).toUpperCase()}
                 </Avatar.Fallback>
               </Avatar>
-              <button onClick={() => signOut()} className="btn-signout">
+              <button onClick={handleSignOut} className="btn-signout">
                 Logout
               </button>
             </div>
