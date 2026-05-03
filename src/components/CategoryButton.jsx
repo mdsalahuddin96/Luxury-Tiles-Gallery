@@ -8,8 +8,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useContext } from "react";
+import { CategoryContext } from "@/provider/CategoryProvider";
 
 const CategoryButton = ({ categories }) => {
+  const {setCategory}=useContext(CategoryContext)
   const pathName = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -17,6 +20,7 @@ const CategoryButton = ({ categories }) => {
   const handleCategory = (e) => {
     const searchCategory = e.target.name;
     params.set("category", searchCategory);
+    setCategory(searchCategory);
     router.push(`${pathName}?${params}`);
   };
 
@@ -58,10 +62,6 @@ const CategoryButton = ({ categories }) => {
         <ChevronRight/>
       </button>
     </div>
-
-    // <div>
-    //     <button key={category.id} onClick={handleCategory} name={category.category} className="btn-secondary">{category.category.charAt(0).toUpperCase()+category.category.slice(1)}</button>
-    // </div>
   );
 };
 
