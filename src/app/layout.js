@@ -22,9 +22,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
-          <Footer/>
+          {/* <Footer/> */}
           <ToastContainer position="top-center" />
         </Providers>
       </body>

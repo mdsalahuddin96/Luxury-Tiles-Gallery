@@ -19,7 +19,7 @@ const TileCard = ({ tile }) => {
       </p>
      <p className="text-[var(--text-muted)]">CATEGORY: {tile.category.toUpperCase()}</p>
       <Link href={`/tilesDetails/${tile.id}`} className="btn-secondary">
-        Vide Details
+        View Details
       </Link>
     </div>
   );

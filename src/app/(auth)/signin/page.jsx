@@ -114,6 +114,7 @@ const SignInPage = () => {
               <ArrowRightToSquare />
               Sign In
             </Button>
+            <p className="text-center text-[var(--text-muted)]">Or</p>
             <Button
               className="w-full btn-secondary"
               onClick={handleGoogleLogin}

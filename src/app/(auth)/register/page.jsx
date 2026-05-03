@@ -12,13 +12,14 @@ import {
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [isShow, setIsShow] = useState(false);
-  const router=useRouter()
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -31,17 +32,21 @@ const RegisterPage = () => {
         image: userData.image,
       },
       {
-        onSuccess:()=>{
-          router.push('/signin')
-        }
+        onSuccess: () => {
+          router.push("/signin");
+        },
       },
     );
-    if(data){
-      toast.success('Sign Up Successful!');
+    if (data) {
+      toast.success("Sign Up Successful!");
+    } else {
+      toast.error("Error signing up: " + error.message);
     }
-    else{
-      toast.error("Error signing up: " + error.message)
-    }
+  };
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
   };
   return (
     <div className="flex flex-col gap-10 items-center min-h-screen">
@@ -132,6 +137,14 @@ const RegisterPage = () => {
           <div className="flex flex-col gap-2">
             <Button type="submit" className="w-full btn-primary shadow-none">
               Register
+            </Button>
+            <p className="text-center text-[var(--text-muted)]">Or</p>
+            <Button
+              className="w-full btn-secondary"
+              onClick={handleGoogleLogin}
+            >
+              <FcGoogle />
+              Sign In with Google
             </Button>
           </div>
         </Form>

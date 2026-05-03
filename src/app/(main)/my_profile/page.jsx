@@ -10,7 +10,7 @@ const MyProfilePage = () => {
   console.log(user?.image);
   console.log(user?.email);
   return (
-    <div className="container mx-auto flex justify-center items-center px-10 border border-amber-600 min-h-screen">
+    <div className="container mx-auto flex justify-center items-center px-10 min-h-screen">
       <div className="h-80 min-w-100 relative bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl rounded-3xl">
         
         <Avatar className="size-30 absolute -top-15 left-36">
