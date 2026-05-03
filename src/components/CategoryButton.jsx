@@ -19,7 +19,12 @@ const CategoryButton = ({ categories }) => {
   const params = new URLSearchParams(searchParams);
   const handleCategory = (e) => {
     const searchCategory = e.target.name;
-    params.set("category", searchCategory);
+    if(params){
+      params.set("category", searchCategory);
+      if(params.has("search")){
+        params.delete("search")
+      }
+    }
     setCategory(searchCategory)
     router.push(`${pathName}?${params}`);
   };

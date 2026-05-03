@@ -2,7 +2,9 @@
 import UserUpdateModal from "@/components/UserUpdateModal";
 import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
-import { Avatar } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
+import Link from "next/link";
+import { BiEdit } from "react-icons/bi";
 
 const MyProfilePage = () => {
   const { data } = authClient.useSession();
@@ -46,7 +48,7 @@ const MyProfilePage = () => {
           </div>
         </div>
         <div className="mt-7 text-center">
-          <UserUpdateModal />
+          <Link href={'/my_profile/updateuser'}><Button className="bg-[var(--accent)] text-[--text-main]"><BiEdit/> Update User</Button></Link>
         </div>
       </div>
     </div>

@@ -1,13 +1,45 @@
-
 import TileCard from "@/components/TileCard";
 import { getData } from "@/service/getData";
 import Image from "next/image";
-import fileImage from "../../../../public/file.svg"
+import fileImage from "../../../../public/file.svg";
 
 const AllTilesPage = async ({ searchParams }) => {
-  const { category } = await searchParams;
-
+  const { category, search } = await searchParams;
   let allTiles = await getData();
+  if (search && category) {
+    const result = allTiles.filter((tile) => {
+      if (
+        tile.category.toLowerCase() === category.toLowerCase() &&
+        tile.title.toLowerCase().includes(search.toLowerCase())
+      ) {
+        return tile;
+      }
+    });
+    if (result.length > 0) {
+      allTiles = result;
+    } else {
+      return (
+        <div className="flex flex-col gap-4 justify-center items-center min-h-screen ">
+          <Image src={fileImage} alt="file logo" height={100} width={100} />
+          <p className="text-2xl tex-[var(--text-muted)]">No Tiles Available</p>
+        </div>
+      );
+    }
+  } else if (search) {
+    const searchedTiles = allTiles.filter((tile) =>
+      tile.title.toLowerCase().includes(search.toLowerCase()),
+    );
+    if (searchedTiles.length > 0) {
+      allTiles = searchedTiles;
+    } else {
+      return (
+        <div className="flex flex-col gap-4 justify-center items-center min-h-screen ">
+          <Image src={fileImage} alt="file logo" height={100} width={100} />
+          <p className="text-2xl tex-[var(--text-muted)]">No Tiles Available</p>
+        </div>
+      );
+    }
+  }
   if (category) {
     const filteredTiles = allTiles.filter(
       (tile) => tile.category.toLowerCase() === category.toLowerCase(),
@@ -15,12 +47,7 @@ const AllTilesPage = async ({ searchParams }) => {
     if (filteredTiles.length === 0) {
       return (
         <div className="flex flex-col gap-4 justify-center items-center min-h-screen ">
-          <Image
-            src={fileImage}
-            alt="file logo"
-            height={100}
-            width={100}
-          />
+          <Image src={fileImage} alt="file logo" height={100} width={100} />
           <p className="text-2xl tex-[var(--text-muted)]">No Tiles Available</p>
         </div>
       );
@@ -30,7 +57,9 @@ const AllTilesPage = async ({ searchParams }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 container mx-auto my-10">
-      {allTiles.map((tile) =><TileCard key={tile.id} tile={tile}></TileCard>)}
+      {allTiles.map((tile) => (
+        <TileCard key={tile.id} tile={tile}></TileCard>
+      ))}
     </div>
   );
 };
