@@ -37,11 +37,11 @@ const SignInPage = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    const data = await authClient.signIn.social({
-      provider: "google",
-    });
-  };
+  // const handleGoogleLogin = async () => {
+  //   const data = await authClient.signIn.social({
+  //     provider: "google",
+  //   });
+  // };
   return (
     <div className="flex flex-col gap-10 items-center min-h-screen">
       <div className="text-center mt-10">
@@ -116,7 +116,7 @@ const SignInPage = () => {
             </Button>
             <Button
               className="w-full btn-secondary"
-              onClick={handleGoogleLogin}
+              // onClick={handleGoogleLogin}
             >
               <FcGoogle />
               Sign In with Google

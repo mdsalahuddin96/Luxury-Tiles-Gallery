@@ -1,74 +1,69 @@
 @import "tailwindcss";
-@import "@heroui/styles"; 
+@import "@heroui/styles";
 
 :root {
-
-  --bg-body: #f6f5f3;             
+  --bg-body: #f6f5f3;
   --bg-card: #ffffff;
 
-  --text-main: #1f2a30;            
+  --text-main: #1f2a30;
   --text-muted: #6b7c85;
 
   --border-color: #e4e7eb;
 
+  --accent: #2f5d62;
+  --accent-soft: #7fa3a6;
 
-  --accent: #2F5D62;               
-  --accent-soft: #7FA3A6;
+  --accent-secondary: #c8a97e;
 
-  --accent-secondary: #C8A97E;     
-
-  --btn-gradient: linear-gradient(135deg, #3A6B6F 0%, #2F5D62 100%);
+  --btn-gradient: linear-gradient(135deg, #3a6b6f 0%, #2f5d62 100%);
   --btn-shadow: rgba(47, 93, 98, 0.35);
 
-  --neutral-warm: #D6CCC2;        
+  --neutral-warm: #d6ccc2;
 }
 
 .dark {
-
-
   --bg-body: #0f1a1f;
   --bg-card: #16262d;
 
+  --text-main: #e8f1f5;
+  --text-muted: #9fb3bd;
 
-  --text-main: #E8F1F5;
-  --text-muted: #9FB3BD;
+  --border-color: #2c3e46;
 
+  --accent: #4f8a8b;
+  --accent-soft: #3a6b6f;
 
-  --border-color: #2C3E46;
+  --accent-secondary: #bfa181;
 
-  --accent: #4F8A8B;
-  --accent-soft: #3A6B6F;
+  --btn-gradient: linear-gradient(135deg, #4f8a8b 0%, #2f5d62 100%);
+  --btn-shadow: rgba(79, 138, 139, 0.3);
 
-  --accent-secondary: #BFA181;
-
-  --btn-gradient: linear-gradient(135deg, #4F8A8B 0%, #2F5D62 100%);
-  --btn-shadow: rgba(79, 138, 139, 0.30);
-
-  --neutral-warm: #5C5147;
+  --neutral-warm: #5c5147;
 }
 
 body {
   font-family: var(--font-main);
   background-color: var(--bg-body);
   color: var(--text-main);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   margin: 0;
 }
-
 
 .tile-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   padding: 24px;
   border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
 }
 
 .tile-card:hover {
   border-color: var(--accent);
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary {
@@ -102,6 +97,30 @@ body {
 .btn-secondary:hover {
   background: var(--accent);
   color: white;
+}
+
+.btn-signin {
+  background: var(--btn-gradient);
+  color: #ffffff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 60px;
+  font-weight: 500;
+  font-family: var(--font-main);
+  cursor: pointer;
+
+  /* box-shadow: 0 6px 12px -2px var(--btn-shadow); */
+}
+.btn-signout {
+  background: linear-gradient(135deg, #b91c1c 0%, #7a1f2b 100%);
+  color: #ffffff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 60px;
+  font-family: var(--font-main);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .tile-badge {
