@@ -11,12 +11,10 @@ export const metadata = {
 export default function AllTilesLayout({ children }) {
   return (
     <div className="container mx-auto mb-20">
-      <CategoryProvider>
-        <SearchTilesFiled/>
-        <SelectCategory />
-        <TilesCategory />
-        <div>{children}</div>
-      </CategoryProvider>
+      <SearchTilesFiled />
+      <SelectCategory />
+      <TilesCategory />
+      <div>{children}</div>
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { authClient, signOut } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
-
 const navItems = [
   {
     href: "/",
@@ -25,14 +24,14 @@ const navItems = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const { data, isPending } =authClient.useSession()
+  const { data, isPending } = authClient.useSession();
   const user = data?.user;
   const router = useRouter();
   const handleSignOut = async () => {
-    await signOut();
-    router.push("/");
+    await signOut()
+    window.location.href="/";
   };
-  
+
   return (
     <nav className="sticky top-0 z-40 w-full bg-[var(--bg-card)] border-b border-separator">
       <header className="flex py-4 items-center justify-between container mx-auto px-2 md:px-0">

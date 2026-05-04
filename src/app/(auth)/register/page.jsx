@@ -10,6 +10,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -50,7 +51,7 @@ const RegisterPage = () => {
     });
   };
   return (
-    <div className="flex flex-col gap-10 items-center min-h-screen">
+    <div className="flex flex-col gap-5 items-center min-h-screen mb-10">
       <div className="text-center mt-10">
         <h1 className="text-4xl font-bold text-[var(--text-main)]">
           Create Your Account
@@ -148,6 +149,12 @@ const RegisterPage = () => {
             </Button>
           </div>
         </Form>
+        <p className="mt-10">
+          Already have an account?{" "}
+          <Link href="/signin" className="text-blue-400 underline">
+            SignIn
+          </Link>
+        </p>
       </div>
     </div>
   );

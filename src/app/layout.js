@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { ToastContainer } from "react-toastify";
 import Providers from "@/provider/Providers";
-
+import CategoryProvider from "@/provider/CategoryProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,10 +20,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body className="bg-background text-foreground">
-        <Providers>
-          {children}
-          <ToastContainer position="top-center" />
-        </Providers>
+        <CategoryProvider>
+          <Providers>
+            {children}
+            <ToastContainer position="top-center" />
+          </Providers>
+        </CategoryProvider>
       </body>
     </html>
   );
