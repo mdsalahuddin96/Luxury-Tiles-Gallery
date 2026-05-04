@@ -30,7 +30,7 @@ const Navbar = () => {
   const router = useRouter();
   const handleSignOut = async () => {
     await signOut();
-    router.replace("/");
+    router.push("/");
   };
   
   return (
