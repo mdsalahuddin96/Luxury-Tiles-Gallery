@@ -5,7 +5,7 @@ import NavLinks from "./NavLinks";
 import Link from "next/link";
 import { authClient, signOut } from "@/lib/auth-client";
 import { Avatar, Spinner } from "@heroui/react";
-import { useRouter } from "next/navigation";
+
 
 const navItems = [
   {
@@ -26,7 +26,8 @@ const Navbar = () => {
 
   const { data, isPending } = authClient.useSession();
   const user = data?.user;
-  const router = useRouter();
+  const isLoggedIn = !!data?.session;
+  console.log(isLoggedIn)
   const handleSignOut = async () => {
     await signOut()
     window.location.href="/";

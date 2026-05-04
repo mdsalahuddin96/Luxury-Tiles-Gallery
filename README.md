@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏠 Luxury Tiles Gallery
 
-## Getting Started
+A modern, responsive web application where users can explore different types of tiles, view details, and search products by category or name. Users must log in to view detailed product information and also for see and update their profile (name & image).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🧱 Browse a wide collection of tiles
+- 🔍 Search products by category or name
+- 📄 View detailed product information and see profile (requires login)
+- 🔐 Authentication system (Sign up / Sign in / Logout)
+- 👤 User profile management (update name & image)
+- 🎨 Modern responsive UI
+- ⚡ Fast and optimized Next.js App Router structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Next.js (App Router)**
+- **React**
+- **better-auth**
+- **MongoDB**
+- **HeroUI**
+- **Tailwind CSS**
+- **SwiperJS**
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Description
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This is a modern tile gallery platform where users can explore tiles in a structured and user-friendly interface. The application supports category-based filtering and name-based search functionality.
 
-## Deploy on Vercel
+To ensure secure access, detailed product views are restricted to authenticated users only. Users can also manage their profile information, including updating their name and profile image.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔐 Authentication
+
+- Email & Password authentication
+- Google OAuth login
+- Protected routes for product details and profile
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
