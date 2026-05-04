@@ -10,6 +10,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -40,6 +41,7 @@ const RegisterPage = () => {
     );
     if (data) {
       toast.success("Sign Up Successful!");
+      await authClient.signOut()
     } else {
       toast.error("Error signing up: " + error.message);
     }
