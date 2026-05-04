@@ -26,8 +26,6 @@ const Navbar = () => {
 
   const { data, isPending } = authClient.useSession();
   const user = data?.user;
-  const isLoggedIn = !!data?.session;
-  console.log(isLoggedIn)
   const handleSignOut = async () => {
     await signOut()
     window.location.href="/";

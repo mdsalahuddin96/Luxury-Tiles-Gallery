@@ -40,7 +40,7 @@ const RegisterPage = () => {
       },
     );
     if (data) {
-      toast.success("Sign Up Successful!");
+      toast.success("Registration Successful!");
       await authClient.signOut()
     } else {
       toast.error("Error signing up: " + error.message);
